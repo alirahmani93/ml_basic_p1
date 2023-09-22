@@ -13,6 +13,9 @@ with st.container() as map_chart:
         "col3": df.Grade,
         "col4": np.random.rand(94087, 4).tolist(),
     })
+
+
+    
     st.map(df,
            latitude='col1',
            longitude='col2',
