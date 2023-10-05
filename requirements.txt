@@ -8,3 +8,4 @@ python-dotenv==1.0.0
 folium
 streamlit_folium
 geopandas
+streamlit-option-menu
