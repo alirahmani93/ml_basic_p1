@@ -32,36 +32,36 @@ df = utils.import_reports(filename='lat_lon_inspection_result_size', file_type='
 #            # zoom=5
 #            )
 
-# st.dataframe(df)
-#
-# # Convert latitude_bin to numerical values
-# df['latitude'] = df['latitude_bin'].str.extract(r'\((.*),.*\]').astype(float)
-# # print (df['latitude'])
-# df['longitude'] = df['longitude_bin'].str.extract(r'\((.*),.*\]').astype(float)
-#
-# # Create a base map centered on a specific location
-# map_center = [(df['latitude'].mean()), (df['longitude'].mean())]
-# m = folium.Map(location=map_center, zoom_start=12)
-#
-# # Iterate over the DataFrame and add circles to the map
-# for index, row in df.iterrows():
-#     lat = row['latitude']
-#     lon = (row['longitude'] + row['longitude']) / 2
-#     radius = abs(row['latitude'] - row['latitude']) * 111000
-#
-#     result = row['inspection_result']
-#     size = row['_size']
-#
-#     tooltip = f"Result: {result}, Size: {size}"
-#     folium.Circle(
-#         location=[lat, lon],
-#         radius=radius,
-#         color='blue',
-#         fill=True,
-#         fill_color='blue',
-#         fill_opacity=0.4,
-#         popup=tooltip
-#     ).add_to(m)
+st.dataframe(df)
+
+# Convert latitude_bin to numerical values
+df['latitude'] = df['latitude_bin'].str.extract(r'\((.*),.*\]').astype(float)
+# print (df['latitude'])
+df['longitude'] = df['longitude_bin'].str.extract(r'\((.*),.*\]').astype(float)
+
+# Create a base map centered on a specific location
+map_center = [(df['latitude'].mean()), (df['longitude'].mean())]
+m = folium.Map(location=map_center, zoom_start=12)
+
+# Iterate over the DataFrame and add circles to the map
+for index, row in df.iterrows():
+    lat = row['latitude']
+    lon = (row['longitude'] + row['longitude']) / 2
+    radius = abs(row['latitude'] - row['latitude']) * 111000
+
+    result = row['inspection_result']
+    size = row['_size']
+
+    tooltip = f"Result: {result}, Size: {size}"
+    folium.Circle(
+        location=[lat, lon],
+        radius=radius,
+        color='blue',
+        fill=True,
+        fill_color='blue',
+        fill_opacity=0.4,
+        popup=tooltip
+    ).add_to(m)
 #
 # # Create a list of latitudes, longitudes, and sizes
 # latitudes = df['latitude'].tolist()
