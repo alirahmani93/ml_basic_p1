@@ -188,6 +188,7 @@ if st.button("Show Closed Restaurant"):
         p = sns.barplot(x=custom_grade['inspection_closed_business'], y=custom_grade['inspection_score'],
                         hue=custom_grade['grade'])
         st.pyplot(p.plot())
+        st.image('./img/Average Inspection Score_grade.png')
         st.image('./img/Inspection Closed Business_Grade Average.png')
         st.image('./img/Inspection Closed Business_Inspection Score Average.png')
         # st.image('./img/map_number_close.png')
